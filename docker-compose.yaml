@@ -1,16 +1,61 @@
 version: '3'
 services:
+  mysql-db:
+    image: 'mysql:8'
+    container_name: mysql-db
+    ports:
+      - '3306:3306'  # Change to 3307:3306 if local MySQL exists
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=mydb
+      - MYSQL_USER=myuser
+      - MYSQL_PASSWORD=mypassword
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   serviceregistry:
     image: 'serviceregistry:v1'
-    container_name: serviceregistry
+    container_name: service-registry
     ports:
       - '8761:8761'
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8761"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   configserver:
     image: 'configserver:v1'
-    container_name: configserver
+    container_name: config-server
     ports:
       - '9296:9296'
     environment:
       - EUREKA_SERVER_ADDRESS=http://serviceregistry:8761/eureka
     depends_on:
-      - serviceregistry
+      serviceregistry:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "9296"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  productservice:
+    image: 'productservice:v1'
+    container_name: product-service
+    ports:
+      - '8080:8080'
+    environment:
+      - EUREKA_SERVER_ADDRESS=http://serviceregistry:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/mydb
+      - SPRING_DATASOURCE_USERNAME=myuser
+      - SPRING_DATASOURCE_PASSWORD=mypassword
+    depends_on:
+      configserver:
+        condition: service_healthy

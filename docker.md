@@ -47,6 +47,11 @@ Execute following command
 docker-compose -f docker-compose.yaml up
 ```
 
+9) start a docker container using container id
+```
+docker start <container_id>
+```
+
 ## Mysql
 
 1) Download and start mysql container
@@ -108,3 +113,25 @@ or we can run our image in detached mode
 ```
 docker run -d -p 9296:9296 configserver:v1
 ```
+
+## Product - Service
+
+To Build image for Product Service
+
+1) Go to the folder containing the Dockerfile and open command prompt or powershell in admin mode.
+
+2) Execute
+
+```
+docker build -t productservice:v1 .
+```
+
+3) To run the Product Service image, execute command
+
+```
+docker run -e SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/mydb -e SPRING_DATASOURCE_USERNAME=myuser -e SPRING_DATASOURCE_PASSWORD=mypassword -p 8080:8080 productservice:v1
+```
+or we can run our image in detached mode
+
+```
+docker run -d -p 8080:8080 productservice:v1
