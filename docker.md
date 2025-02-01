@@ -2,7 +2,7 @@
 
 ## General Command
 
-1) To remove any container execute following
+1) To remove any image execute following
 
 ```
 docker rmi image_name:tag
@@ -42,7 +42,9 @@ docker container prune -f
 
 8) Running the docker compose file
 First go inside the folder having the docker-compose file and open it in command prompt or powershell in admin mode.
-Execute following command
+Execute following command.
+
+But Before executing this command, you need to make sure that images have been created first
 ```
 docker-compose -f docker-compose.yaml up
 ```
