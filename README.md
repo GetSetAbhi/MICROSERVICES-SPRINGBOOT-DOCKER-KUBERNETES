@@ -4,7 +4,6 @@ application.yml is the place for storing config properties.
 This repository acts as the config repository itself so any properties 
 that have to be passed on to the microservices are added to the application.yml
 
-############################################################## 
 
 User Following Endpoints and payloads to work with the microservices.
 Make sure mysql is installed.
@@ -22,7 +21,6 @@ POST http://localhost:8080/product
     "price": 10,
     "quantity": 1
 }
-```json
 
 2) Get Product by id 
 
@@ -33,7 +31,6 @@ GET http://localhost:8080/product/1
     "price": 10,
     "quantity": 1
 }
-```json
 
 # Order - Service
 
@@ -47,4 +44,3 @@ POST http://localhost:8082/order/placeOrder
     "quantity": 1,
     "paymentMode": "CASH"
 }
-```json
