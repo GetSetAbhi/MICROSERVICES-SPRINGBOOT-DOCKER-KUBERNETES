@@ -20,9 +20,9 @@ public class OrderServiceImpl implements OrderService{
 
     @Autowired
     private OrderRepository orderRepository;
-
+    
     @Autowired
-    private RestTemplate restTemplate;
+    private ProductService productService;
 
     @Override
     public long placeOrder(OrderRequest orderRequest) {
@@ -34,7 +34,7 @@ public class OrderServiceImpl implements OrderService{
 
         log.info("Placing Order Request: {}", orderRequest);
 
-        //productService.reduceQuantity(orderRequest.getProductId(), orderRequest.getQuantity());
+        productService.reduceQuantity(orderRequest.getProductId(), orderRequest.getQuantity());
 
         log.info("Creating Order with Status CREATED");
         Order order = Order.builder()
@@ -70,59 +70,5 @@ public class OrderServiceImpl implements OrderService{
 
         log.info("Order Places successfully with Order Id: {}", order.getId());
         return order.getId();
-    }
-
-    @Override
-    public OrderResponse getOrderDetails(long orderId) {
-//        log.info("Get order details for Order Id : {}", orderId);
-//
-//        Order order
-//                = orderRepository.findById(orderId)
-//                .orElseThrow(() -> new CustomException("Order not found for the order Id:" + orderId,
-//                        "NOT_FOUND",
-//                        404));
-//
-//        log.info("Invoking Product service to fetch the product for id: {}", order.getProductId());
-//        ProductResponse productResponse
-//                = restTemplate.getForObject(
-//                        "http://PRODUCT-SERVICE/product/" + order.getProductId(),
-//                ProductResponse.class
-//        );
-//
-//        log.info("Getting payment information form the payment Service");
-//        PaymentResponse paymentResponse
-//                = restTemplate.getForObject(
-//                        "http://PAYMENT-SERVICE/payment/order/" + order.getId(),
-//                PaymentResponse.class
-//                );
-//
-//        OrderResponse.ProductDetails productDetails
-//                = OrderResponse.ProductDetails
-//                .builder()
-//                .productName(productResponse.getProductName())
-//                .productId(productResponse.getProductId())
-//                .build();
-//
-//        OrderResponse.PaymentDetails paymentDetails
-//                = OrderResponse.PaymentDetails
-//                .builder()
-//                .paymentId(paymentResponse.getPaymentId())
-//                .paymentStatus(paymentResponse.getStatus())
-//                .paymentDate(paymentResponse.getPaymentDate())
-//                .paymentMode(paymentResponse.getPaymentMode())
-//                .build();
-//
-//        OrderResponse orderResponse
-//                = OrderResponse.builder()
-//                .orderId(order.getId())
-//                .orderStatus(order.getOrderStatus())
-//                .amount(order.getAmount())
-//                .orderDate(order.getOrderDate())
-//                .productDetails(productDetails)
-//                .paymentDetails(paymentDetails)
-//                .build();
-//
-//        return orderResponse;
-    	return null;
     }
 }
