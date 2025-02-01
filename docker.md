@@ -1,5 +1,9 @@
 # Docker instructions for this project
 
+***docker-compose.yaml*** Contains reference to local docker images
+
+***docker-compose2.yaml*** Contains reference to images stored in docker hub repository
+
 ## General Command
 
 1) To remove any image execute following
