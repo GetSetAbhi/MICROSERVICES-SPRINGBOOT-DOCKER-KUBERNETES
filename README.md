@@ -1,7 +1,7 @@
 # MICROSERVICES-SPRINGBOOT-DOCKER-KUBERNETES
 
 ## Docker Instructions
-[Go to Installation Guide](DOCKER - README.md)
+[Go to Installation Guide](docker.md)
 
 ## application.yml
  
