@@ -14,14 +14,30 @@ docker rmi image_name:tag
 docker ps
 ```
 
-3) To get logs of a particular running container
+3) To get a list of all containers whether running or not
+
+```
+docker ps -a
+```
+
+4) To get logs of a particular running container
 ```
 docker logs <container_id>
 ```
 
-4) To stop a running container
+5) To stop a running container
 ```
 docker stop <container_id>
+```
+
+6) To remove a container
+```
+docker rm <container_id>
+```
+
+7) To remove all containers except the active one
+```
+docker container prune -f
 ```
 
 ## Mysql
