@@ -12,7 +12,7 @@ User Following Endpoints and payloads to work with the microservices.
 Make sure mysql is installed.
 
 
-# Product - Service
+## Product - Service
 
 1) Create Product 
 
@@ -37,7 +37,7 @@ GET http://localhost:8080/product/1
 }
 ```
 
-# Order - Service
+## Order - Service
 
 1) Create Order
 
