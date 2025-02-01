@@ -8,8 +8,9 @@ This repository acts as the config repository itself so any properties
 that have to be passed on to the microservices are added to the application.yml
 
 
-User Following Endpoints and payloads to work with the microservices.
-Make sure mysql is installed.
+Use the Following Endpoints and payloads to work with the microservices.
+
+**Make sure mysql is installed.**
 
 
 ## Product - Service
