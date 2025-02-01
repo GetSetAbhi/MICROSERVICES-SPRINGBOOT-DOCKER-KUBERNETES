@@ -1,7 +1,7 @@
 FROM openjdk:17-alpine
 
-EXPOSE 8080
+EXPOSE 8082
 
-ADD target/docker-demo.jar docker-demo.jar
+ADD target/order-service.jar order-service.jar
 
-ENTRYPOINT ["java", "-jar", "docker-demo.jar"]
+ENTRYPOINT ["java", "-jar", "order-service.jar"]
