@@ -49,6 +49,19 @@ docker-compose -f docker-compose.yaml up
 
 ## Mysql
 
+1) Download and start mysql container
+
+```
+docker run -d --name mysql-db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=mydb -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -p 3306:3306 mysql:8
+
+```
+
+2) Run mysql inside docker
+
+```
+docker exec -it mysql-db mysql -u myuser -p
+
+```
 
 ## Service Registry
 
