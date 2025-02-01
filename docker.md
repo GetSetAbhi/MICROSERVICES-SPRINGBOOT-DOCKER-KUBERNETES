@@ -1,52 +1,39 @@
-# MICROSERVICES-SPRINGBOOT-DOCKER-KUBERNETES
+# Docker instructions for this project
 
 
-## application.yml
- 
-application.yml is the place for storing config properties.
-This repository acts as the config repository itself so any properties 
-that have to be passed on to the microservices are added to the application.yml
+## Mysql
 
-**Make sure mysql is installed.**
 
-Use the Following Endpoints and payloads to work with the microservices.
+## Service Registry
+To Build image for service registry
+
+1) Go to the folder containing the Dockerfile and open command prompt or powershell in admin mode.
+
+2) Execute
+
+```
+	docker build -t serviceregistry:v1 .
+```
+
+3) To run the serviceregistry image, execute command
+
+```
+	docker run -p 8761:8761 serviceregistry:v1
+```
+or we can run our image in detached mode
+
+```
+	docker run -d -p 8761:8761 serviceregistry:v1
+```
+
+4) If we want to stop the container running service registry application 
+then first we execute docker ps to get list of running containers, then we execute docker stop command to stop a running container 
+```
+docker ps
+
+docker stop <container_id>
+```
+
 
 
 ## Product - Service
-
-1) Create Product 
-
-POST http://localhost:8080/product
-
-```json
-{
-    "name": "Apple",
-    "price": 10,
-    "quantity": 1
-}
-```
-
-2) Get Product by id 
-
-GET http://localhost:8080/product/1
-```json
-{
-    "name": "Apple",
-    "price": 10,
-    "quantity": 1
-}
-```
-
-## Order - Service
-
-1) Create Order
-
-POST http://localhost:8082/order/placeOrder
-```json
-{
-    "productId": 1,
-    "totalAmount": 100,
-    "quantity": 1,
-    "paymentMode": "CASH"
-}
-```
