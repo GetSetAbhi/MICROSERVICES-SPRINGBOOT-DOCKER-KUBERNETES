@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/GetSetAbhi/docker-kubernetes-microservices-config
+          uri: https://github.com/GetSetAbhi/MICROSERVICES-SPRINGBOOT-DOCKER-KUBERNETES
           clone-on-start: true
 
 
