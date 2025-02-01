@@ -40,6 +40,13 @@ docker rm <container_id>
 docker container prune -f
 ```
 
+8) Running the docker compose file
+First go inside the folder having the docker-compose file and open it in command prompt or powershell in admin mode.
+Execute following command
+```
+docker-compose -f docker-compose.yaml up
+```
+
 ## Mysql
 
 

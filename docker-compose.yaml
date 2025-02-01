@@ -1,0 +1,16 @@
+version: '3'
+services:
+  serviceregistry:
+    image: 'serviceregistry:v1'
+    container_name: serviceregistry
+    ports:
+      - '8761:8761'
+  configserver:
+    image: 'configserver:v1'
+    container_name: configserver
+    ports:
+      - '9296:9296'
+    environment:
+      - EUREKA_SERVER_ADDRESS=http://serviceregistry:8761/eureka
+    depends_on:
+      - serviceregistry
