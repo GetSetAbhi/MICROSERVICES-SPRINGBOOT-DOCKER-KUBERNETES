@@ -1,18 +1,17 @@
 package com.example.OrderService.service;
 
+import java.time.Instant;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.OrderService.entity.Order;
-import com.example.OrderService.external.client.PaymentService;
 import com.example.OrderService.external.client.ProductService;
 import com.example.OrderService.external.request.PaymentRequest;
 import com.example.OrderService.model.OrderRequest;
-import com.example.OrderService.model.OrderResponse;
 import com.example.OrderService.repository.OrderRepository;
-import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
-import java.time.Instant;
+import lombok.extern.log4j.Log4j2;
 
 @Service
 @Log4j2

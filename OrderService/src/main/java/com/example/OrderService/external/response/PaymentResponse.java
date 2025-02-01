@@ -1,12 +1,13 @@
 package com.example.OrderService.external.response;
 
+import java.time.Instant;
+
 import com.example.OrderService.model.PaymentMode;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.Instant;
 
 @Data
 @AllArgsConstructor
