@@ -21,6 +21,7 @@ POST http://localhost:8080/product
     "price": 10,
     "quantity": 1
 }
+```
 
 2) Get Product by id 
 
@@ -31,6 +32,7 @@ GET http://localhost:8080/product/1
     "price": 10,
     "quantity": 1
 }
+```
 
 # Order - Service
 
@@ -44,3 +46,4 @@ POST http://localhost:8082/order/placeOrder
     "quantity": 1,
     "paymentMode": "CASH"
 }
+```
