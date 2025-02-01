@@ -15,29 +15,36 @@ Make sure mysql is installed.
 1) Create Product 
 
 POST http://localhost:8080/product
+
+```json
 {
     "name": "Apple",
     "price": 10,
     "quantity": 1
 }
+```json
 
 2) Get Product by id 
 
 GET http://localhost:8080/product/1
+```json
 {
     "name": "Apple",
     "price": 10,
     "quantity": 1
 }
+```json
 
 # Order - Service
 
 1) Create Order
 
 POST http://localhost:8082/order/placeOrder
+```json
 {
     "productId": 1,
     "totalAmount": 100,
     "quantity": 1,
     "paymentMode": "CASH"
 }
+```json
