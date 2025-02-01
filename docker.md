@@ -4,6 +4,27 @@
 
 ***docker-compose2.yaml*** Contains reference to images stored in docker hub repository
 
+To upload a local image to online repository perform following steps:
+
+create a repository in online docker hub
+Suppose name of online image is docker-demo-abhishek
+Suppose name of local image is springrest
+
+1) create local docker image 
+```
+docker build -t springrest:v1 .
+```
+
+2) tag the local image to the remote image
+```
+docker tag springrest:v1 araina97/docker-demo-abhishek:v1
+```
+
+3) Push the local image to the remote image
+```
+docker push araina97/docker-demo-abhishek:v1
+```
+
 ## General Command
 
 1) To remove any image execute following
