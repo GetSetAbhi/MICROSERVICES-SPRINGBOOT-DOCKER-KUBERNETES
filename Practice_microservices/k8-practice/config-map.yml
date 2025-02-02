@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: microservice-a-config-cm
+  namespace : kubernetes-practice-namespace
+data:
+  MICROSERVICE_B_URL: "http://microservice-b-service:8081/b/hello"
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: microservice-b-config-cm
+  namespace : kubernetes-practice-namespace
+data:
+  MICROSERVICE_A_URL: "http://microservice-a-service:8080/a/hello"
+
+---

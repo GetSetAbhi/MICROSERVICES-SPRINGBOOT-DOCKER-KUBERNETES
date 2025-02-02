@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservice-b-deployment  # Deployment Name
+  namespace : kubernetes-practice-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservice-b
+  template:
+    metadata:
+      labels:
+        app: microservice-b
+    spec:
+      containers:
+      - name: microservice-b
+        image: araina97/microserviceb
+        imagePullPolicy: IfNotPresent            
+        ports:
+        - containerPort: 8081
+        envFrom:
+        - configMapRef:
+           name : microservice-b-config-cm      
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: microservice-b-service  # Service Name
+  namespace : kubernetes-practice-namespace
+spec:
+  selector:
+    app: microservice-b
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+  type: ClusterIP
