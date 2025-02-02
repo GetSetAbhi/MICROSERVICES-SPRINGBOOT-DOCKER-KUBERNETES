@@ -1,5 +1,7 @@
 # Kubernetes instructions for this project
 
+Before starting kubernetes, always make sure that the image for the projects exists in the local docker hub
+
 ## General Command
 
 1) To create a namespace
