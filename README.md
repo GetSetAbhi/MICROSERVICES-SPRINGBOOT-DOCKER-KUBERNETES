@@ -3,6 +3,9 @@
 ## Docker Instructions
 [Docker Commands and Instructions](docker.md)
 
+## Kubernetes Instructions
+[Kubernetes Commands and Instructions](kubernetes.md)
+
 ## application.yml
  
 application.yml is the place for storing config properties.
