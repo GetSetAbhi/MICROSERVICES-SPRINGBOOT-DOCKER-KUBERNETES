@@ -30,6 +30,11 @@ kubectl delete namespace <namespace-name>
 kubectl apply -f .\k8\
 ```
 
+6) To delete all services and deployment created previously
+```
+kubectl delete -f .\k8\
+```
+
 6) You can check status of all deployments in minikube dashboard
 ```
 minikube dashboard
@@ -37,14 +42,14 @@ minikube dashboard
 
 7) To expose a service and access it locally, perform following
 
-	a) First get list of services running
+	1) First get list of services running
 		```
 		kubectl get services
 		```
 		
-	b) use minikube command to expose it
+	2) use minikube command to expose it
 		```
 		minikube service <service_name>
 		```
 		
-		we expose product service to utilize the Product service API
+	we expose product service to utilize the Product service API
