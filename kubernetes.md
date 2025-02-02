@@ -36,10 +36,12 @@ minikube dashboard
 ```
 
 7) To expose a service and access it locally, perform following
+
 	a) First get list of services running
 		```
 		kubectl get services
 		```
+		
 	b) use minikube command to expose it
 		```
 		minikube service <service_name>
