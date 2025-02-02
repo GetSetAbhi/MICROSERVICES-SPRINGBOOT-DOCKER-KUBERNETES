@@ -44,12 +44,12 @@ minikube dashboard
 
 	1) First get list of services running
 		```
-		kubectl get services
+		kubectl get services -n <namespace_name>
 		```
 		
 	2) use minikube command to expose it
 		```
-		minikube service <service_name>
+		minikube service <service_name> -n <namespace_name>
 		```
 		
-	we expose product service to utilize the Product service API
+	we expose product service to utilize the Product service API in postman
